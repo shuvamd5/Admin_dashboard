@@ -1,0 +1,228 @@
+/* components/dashboard/DashboardLayout.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--dashboard-background-color);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--header-background-color);
+  color: var(--header-text-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.headerTitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  flex-grow: 1;
+  text-align: center;
+  margin-left: 50px;
+}
+
+.menuToggleBtn {
+  background: none;
+  border: none;
+  color: var(--header-text-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: block;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.userIcon,
+.logoutIcon {
+  color: var(--header-text-color);
+}
+
+.logoutBtn {
+  background: none;
+  border: none;
+  color: var(--header-text-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s ease;
+}
+
+.logoutBtn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mainWrapper {
+  display: flex;
+  flex: 1;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--sidebar-background-color);
+  color: var(--sidebar-text-color);
+  padding: 1.5rem 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, width 0.3s ease;
+  height: 100%; /* Ensure sidebar takes full height of its flex parent (.mainWrapper) */
+  position: sticky; /* Keep sidebar visible on scroll if mainContent overflows */
+  top: var(--header-height, 4rem); /* Stick below header */
+  align-self: flex-start; /* Align to the start of the cross-axis */
+}
+
+.sidebarOpen {
+  transform: translateX(0);
+}
+
+.sidebarClosed {
+  transform: translateX(-100%);
+  width: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 769px) {
+  .menuToggleBtn {
+    display: none;
+  }
+  .sidebar {
+    position: sticky; /* Still sticky on desktop */
+    transform: translateX(0);
+    width: var(--sidebar-width);
+  }
+  .sidebarClosed {
+    width: var(--sidebar-width);
+  }
+  .mainWrapper {
+    margin-left: 0;
+  }
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 0 1.5rem;
+  color: var(--logo-color);
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1; /* Allow nav list to take available vertical space */
+  overflow-y: auto; /* Enable scrolling for nav items if they overflow */
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  user-select: none;
+  gap: 0.75rem;
+}
+
+.navItem:hover {
+  background-color: var(--nav-item-hover-bg);
+}
+
+.navItem.active {
+  background-color: var(--nav-item-active-bg);
+  color: var(--nav-item-active-text);
+}
+
+.navIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.navLabel {
+  flex-grow: 1;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.subMenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: var(--submenu-background-color);
+}
+
+.subNavItem {
+  padding: 0.6rem 1.5rem 0.6rem 3rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.subNavItem:hover {
+  background-color: var(--submenu-item-hover-bg);
+}
+
+.subNavItem.active {
+  background-color: var(--submenu-item-active-bg);
+  color: var(--submenu-item-active-text);
+}
+
+.mainContent {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1.5rem; /* Add padding here so the Card content isn't flush with the edge */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+  display: flex; /* Make mainContent a flex container */
+  flex-direction: column; /* Stack its children (the Card component) vertically */
+}
+
+/* --- REMOVE .card, .loadingContainer, .spinner, .alert, .alert-error from here --- */
+/* These styles should now be defined globally or in their specific component's module CSS */
+
+
+/* Define some CSS variables for easier theming */
+:root {
+  --dashboard-background-color: #f4f7f6;
+  --header-background-color: #2c3e50;
+  --header-text-color: #ecf0f1;
+  --header-height: 4rem; /* Example header height */
+  --sidebar-width: 250px;
+  --sidebar-background-color: #34495e;
+  --sidebar-text-color: #ecf0f1;
+  --logo-color: #ecf0f1;
+  --nav-item-hover-bg: #4a667d;
+  --nav-item-active-bg: #3a536e;
+  --nav-item-active-text: #ffffff;
+  --submenu-background-color: #2f4050;
+  --submenu-item-hover-bg: #3a5064;
+  --submenu-item-active-bg: #3a5064;
+  --submenu-item-active-text: #ffffff;
+  --primary-color: #3498db;
+  --border-radius: 8px;
+}

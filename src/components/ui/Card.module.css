@@ -1,0 +1,11 @@
+/* components/ui/Card.module.css */
+.card {
+  background-color: #fff;
+  border-radius: var(--border-radius, 8px); /* Use a default if var not found */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem; /* Standard padding for all cards */
+  display: flex;
+  flex-direction: column; /* Default vertical stacking for content */
+  flex-grow: 1; /* Allow the card to grow within flex/grid containers */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+}

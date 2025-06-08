@@ -1,0 +1,80 @@
+/* components/dashboard/section.module.css */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Increased gap for better spacing between elements */
+  background-color: var(--color-white); /* Use global white color */
+  padding: 1.5rem; /* Consistent padding */
+  border-radius: var(--border-radius); /* Use global border radius */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  margin-bottom: 1.5rem; /* Ensures space if multiple sections are stacked */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Removed margin-bottom, as the .section gap handles it */
+}
+
+.subtitle {
+  font-size: 1.5rem; /* Slightly larger for a primary section title */
+  font-weight: 700; /* Bold */
+  color: var(--color-primary-blue); /* Use your primary blue color */
+  margin: 0; /* Reset default margins from h1/h2 */
+}
+
+.tableRow {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.tableRow:hover {
+  background-color: var(--dashboard-background-color); /* Lighter hover background */
+}
+
+.selectedRow {
+  background-color: var(--color-background-gradient-start); /* Light background for selected */
+  font-weight: 600;
+  border-left: 4px solid var(--color-primary-blue); /* Visual indicator */
+}
+
+.tableCell {
+  padding: 0.8rem 1rem; /* Slightly more padding for better readability */
+  border-bottom: 1px solid var(--color-border-light-gray); /* Use global border color */
+}
+
+.actionButton {
+  margin-right: 0.5rem; /* Spacing between action buttons */
+  /* Re-use global button styles for consistency, or define specific overrides */
+  padding: 0.4rem 0.8rem;
+  font-size: 0.875rem; /* Smaller font for action buttons */
+  border-radius: 0.375rem; /* Slightly smaller border-radius for compact buttons */
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Slightly more space between form elements */
+}
+
+/* The .label here is likely conflicting with your global .label.
+   It's generally better to use a global .label and if you need a specific one for modal,
+   nest it: .modalForm .label. For now, assuming this is an override for general labels.
+   Ensure this matches your global input/label structure. */
+.label {
+  font-size: 0.95rem; /* Aligns with global label size */
+  font-weight: 600; /* Matches global label weight */
+  color: var(--color-text-dark-gray); /* Use global text color */
+  margin-bottom: 0.5rem; /* Keep if needed for separation from input */
+  display: block; /* Ensure it's a block element */
+}
+
+.emptyMessage {
+  color: var(--color-text-dark-gray); /* Use your dark text color */
+  opacity: 0.7; /* Make it slightly faded */
+  text-align: center;
+  padding: 2rem; /* More padding for visibility */
+  font-style: italic; /* A subtle touch */
+}

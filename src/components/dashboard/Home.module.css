@@ -1,0 +1,245 @@
+/* components/dashboard/Home.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-height: 100%; /* Makes Home component fill its parent (the Card in DashboardLayout) */
+}
+
+.title {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1; /* Allow sections to stretch within the Home container */
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+.datePicker {
+  display: flex;
+  gap: 1rem;
+}
+
+.datePickerGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  align-items: stretch; /* Make grid items stretch vertically */
+}
+
+/* These styles apply to content *inside* the Card component */
+.cardLabel {
+  font-size: 0.875rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.cardValue {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orderSummary {
+  font-size: 1rem;
+  color: var(--text);
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.highlightValue {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.filterButtons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filterButtons button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  background-color: var(--sidebar-background-color); /* Default non-active state */
+  color: var(--sidebar-text-color);
+}
+
+.filterButtons button:hover {
+  background-color: var(--nav-item-hover-bg);
+}
+
+.activeButton {
+  background-color: var(--primary-color) !important; /* Override with primary color */
+  color: var(--header-text-color) !important; /* Override text color */
+}
+
+.deliveryStatusGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  align-items: stretch; /* Make grid items stretch vertically */
+}
+
+.statusLabel {
+  font-size: 0.875rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.statusCount {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--primary);
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottomSectionsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: stretch; /* Make grid items stretch vertically */
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1; /* Allow list to stretch within its section */
+}
+
+.listItemLabel {
+  font-size: 0.95rem;
+  color: var(--text);
+  flex-grow: 1;
+}
+
+.listItemValue {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.loadingContainer {
+  text-align: center;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--header-height, 4rem) - 3rem);
+  color: var(--primary-color);
+}
+
+/* Global spinner and alert styles should ideally be in a global.css file */
+/* Example for global styles (add to a global.css file, e.g., styles/globals.css) */
+/*
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.alert {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.alert-error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+.input {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--header-text-color);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+*/
+
+
+@media (max-width: 768px) {
+  .bottomSectionsGrid {
+    grid-template-columns: 1fr;
+  }
+  .datePicker {
+    flex-direction: column;
+  }
+}
+
+/* Ensure necessary CSS variables are defined, perhaps in a global.css or :root */
+:root {
+    --primary: #3498db; /* Blue */
+    --text: #333; /* Dark text */
+    --primary-hover: #2980b9; /* Darker blue */
+    /* Also make sure these are defined if not already: */
+    --border-radius: 8px;
+    --header-height: 4rem; /* If not defined in your global styles */
+    --primary-color: #3498db; /* Consistent with --primary */
+    --header-text-color: #ecf0f1; /* Needed for button text */
+    --sidebar-background-color: #34495e; /* Needed for non-active button bg */
+    --sidebar-text-color: #ecf0f1; /* Needed for non-active button text */
+    --nav-item-hover-bg: #4a667d; /* Needed for non-active button hover */
+}

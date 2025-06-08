@@ -1,0 +1,41 @@
+/* components/dashboard/page.module.css (for HomePage) */
+
+.container {
+  padding: 2rem;
+  /* REMOVE these: */
+  /* margin-left: 16rem; */
+  /* margin-top: 4rem; */
+  /* DashboardLayout's mainContent padding will handle spacing now */
+}
+
+.title {
+  font-size: 1.5rem;
+  color: var(--color-primary-blue); /* Use your theme variable */
+  margin-bottom: 1.5rem;
+}
+
+.firstRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.secondRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.sectionCard {
+  padding: 1rem; /* Padding inside the Card component */
+  /* Ensure the Card component itself doesn't have conflicting margins */
+}
+
+.viewAllLink {
+  margin-top: 1rem;
+  color: var(--color-primary-blue);
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 500;
+}
